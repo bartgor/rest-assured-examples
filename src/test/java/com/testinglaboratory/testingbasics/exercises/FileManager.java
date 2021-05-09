@@ -33,8 +33,7 @@ public class FileManager {
     public static void createFile(String path) {
         try {
             Files.createFile(Path.of(PROJECT_PATH + "/target/" + path));
-        }
-        catch (FileAlreadyExistsException faee){
+        } catch (FileAlreadyExistsException faee) {
             log.info("The file is already there mate!");
             throw new RuntimeException("YOU HAVE FAILED ME FOR THE LAST TIME! ADMIRAL...");
         }
@@ -57,7 +56,7 @@ public class FileManager {
 
 
     public static void deleteFile(String path) {
-        File file = new File("/target/" + path);
+        File file = new File(PROJECT_PATH + "/target/" + path);
         boolean result = file.delete();
         assertTrue(result);
     }
